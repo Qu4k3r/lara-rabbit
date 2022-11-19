@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: 'app-php'
+    restart: always
+    working_dir: /var/www
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - app-php
+    volumes:
+      - .:/var/www
+    depends_on:
+      - pgsql
+
+  nginx:
+    image: nginx:1.21-alpine
+    container_name: 'nginx-app-php'
+    volumes:
+      - .:/var/www
+      - .docker/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 2022:80
+    networks:
+      - app-php
+    depends_on:
+      - app
+
+  pgsql:
+    image: postgres:14
+    container_name: 'db-app-php'
+    ports:
+      - 2023:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=api_localhost
+      - PGDATA=/var/lib/postgresql/data/db-files/
+    networks:
+      - app-php
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  app-php:
+    name: app-php
+    driver: bridge
