@@ -1,20 +1,45 @@
-# Bem-vindo ao repositório PHP-BASICS
+# Agilize Boilerplate
 
-## Para que serve?
-Para estudos pessoais envolvendo PHP, Docker (raro), Princípios etc ...
+## 📋 Pré-requisitos
+* docker
+* docker-compose
 
-Caso queira utilizar esse ambiente pronto para desenvolvimento em PHP, sinta-se à vontade para clonar a branch `Main` ou realizar um fork desse projeto.
+## 🔩 Começando
+Faça o fork desse repositório, pronto!
 
->Obs.: Talvez algumas mudanças sejam necessárias no arquivo `Makefile`
+## 🔧 Instalação
+Clone o projeto e entre em seu diretório
 
-## Configuração do autoload (PSR-4)
-Ao iniciar um novo projeto com `composer init` (se tiver dúvida, cosulte esse [link](https://weaintplastic.github.io/web-development-field-guide/Development/Frontend_Development/Setting_up_your_project/Setup_Dependency_Managers/Composer/Initialize_Composer_on_a_new_Project.html)).
+### Iniciando o container pela primeira vez
+```sh
+make build-and-serve
+```
 
-No final do processo, o autoload já estará configurado para você (confira seu `composer.json`).
+### Levante o container
+```sh
+make serve
+```
 
-Agora é só importar o autoload no arquivo raiz do seu projeto (geralmente `index.php`), com o devido nome da chave do objeto `psr-4` em seu `composer.json` e começar a codar!!
+## 🚀 Implantação
 
----
+### Gere a chave da aplicação
+```sh
+make key-generate 
+```
+## ⚙️ Executando os testes
+```sh
+make all-unit-tests
+```
 
-## Sugestões e críticas
-Se houve qualquer dúvida, algo ambíguo na descrição do projeto ou até mesmo alguma reclamação, crítica ou sugestão fique à vontade para entrar em contato comigo através de alguma rede social, e-mail etc... (ou até mesmo PR's)
+## 🛠️ Construído com
+Esse repo foi construído com as seguintes ferramentas:
+
+* [AmazonLinux](https://hub.docker.com/_/amazonlinux/)
+* [Laravel](https://laravel.com/)
+* [PHP 8.0.20](https://hub.docker.com/_/php?tab=tags)
+
+## ✒️ Autores
+
+* **Thiago Oliveira** - *Trabalho Inicial*
+* **Erivaldo Jr** - *Trabalho Inicial*
+* **Ernesto Amorim** - *Adaptação para Github público* 
