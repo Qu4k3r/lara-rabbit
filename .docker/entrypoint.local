@@ -2,5 +2,6 @@
 
 /bin/chmod 777 /var/www/bootstrap -Rf
 /bin/chmod 777 /var/www/storage -Rf
+/bin/chmod 777 /var/www/.docker/rabbitmq -Rf
 
 /usr/bin/supervisord -c /etc/supervisord.conf

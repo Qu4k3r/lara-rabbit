@@ -9,7 +9,7 @@ class Receive
 {
     public function upConsumer(): void
     {
-        $connection = new AMQPStreamConnection('localhost', 15672, 'guest', 'guest');
+        $connection = new AMQPStreamConnection('rabbitmq', 5672, 'guest', 'guest');
         $channel = $connection->channel();
 
         $channel->queue_declare('hello', false, false, false, false);

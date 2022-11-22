@@ -9,7 +9,7 @@ use PhpAmqpLib\Message\AMQPMessage;
 
 class Send
 {
-    public static function connect(string $host = 'localhost', int $port = 15672, string $user = 'guest', string $password = 'guest'): AMQPStreamConnection
+    public static function connect(string $host = 'rabbitmq', int $port = 5672, string $user = 'guest', string $password = 'guest'): AMQPStreamConnection
     {
         return new AMQPStreamConnection($host, $port, $user, $password);
     }
